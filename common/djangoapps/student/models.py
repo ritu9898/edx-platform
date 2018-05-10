@@ -1357,7 +1357,7 @@ class CourseEnrollment(models.Model):
             # Only emit mode change events when the user's enrollment
             # mode has changed from its previous setting
             self.emit_event(EVENT_NAME_ENROLLMENT_MODE_CHANGED)
-            ENROLLMENT_TRACK_UPDATED.send(sender=None, user=self.user, course_key=self.course_id)
+            ENROLLMENT_TRACK_UPDATED.send(sender='ENROLLMENT_TRACK_UPDATED', user=self.user, course_key=self.course_id)
 
     def send_signal(self, event, cost=None, currency=None):
         """

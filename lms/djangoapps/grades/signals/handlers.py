@@ -246,6 +246,7 @@ def recalculate_course_and_subsection_grades(sender, user, course_key, **kwargs)
     Updates a saved course grade, forcing the subsection grades
     from which it is calculated to update along the way.
     """
+    log.info("--------------------sender : %s------------------", sender)
     recalculate_course_and_subsection_grades_for_user.apply_async(
         kwargs=dict(
             user_id=user.id,
